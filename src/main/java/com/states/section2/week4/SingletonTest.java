@@ -1,15 +1,14 @@
 package com.states.section2.week4;
 
-import com.states.section2.week4.member.MemberService;
+import com.states.section2.week4.singleton.SingletonService;
 
 public class SingletonTest {
-    static DependencyConfig config = new DependencyConfig();
 
-    static MemberService memberService1 = config.memberService();
-    static MemberService memberService2 = config.memberService();
+    static SingletonService singletonService1 = SingletonService.getInstance();
+    static SingletonService singletonService2 = SingletonService.getInstance();
 
     public static void main(String[] args) {
-        System.out.println("memberService1 = " + memberService1);
-        System.out.println("memberService2 = " + memberService2);
+        System.out.println("singletonService1 = " + singletonService1);
+        System.out.println("singletonService2 = " + singletonService2);
     }
 }
