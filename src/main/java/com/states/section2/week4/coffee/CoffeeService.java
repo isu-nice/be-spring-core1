@@ -1,13 +1,17 @@
 package com.states.section2.week4.coffee;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class CoffeeService {
 
     private final CoffeeRepository coffeeRepository;
 
+    @Autowired
     public CoffeeService(CoffeeRepository coffeeRepository) {
         this.coffeeRepository = coffeeRepository;
     }
-
 
     public void createCoffee(Coffee coffee) {
         coffeeRepository.postCoffee(coffee);
