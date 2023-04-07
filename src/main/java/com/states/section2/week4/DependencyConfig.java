@@ -5,9 +5,11 @@ import com.states.section2.week4.coffee.CoffeeService;
 import com.states.section2.week4.member.MemberRepository;
 import com.states.section2.week4.member.MemberService;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan
 public class DependencyConfig {
     @Bean
     public MemberService memberService() {
