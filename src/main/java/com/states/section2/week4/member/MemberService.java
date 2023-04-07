@@ -1,7 +1,17 @@
 package com.states.section2.week4.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberService {
-    private final MemberRepository memberRepository = new MemberRepository();
+
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     public void createMember(Member member) {
         memberRepository.postMember(member);
