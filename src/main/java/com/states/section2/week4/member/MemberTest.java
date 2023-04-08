@@ -1,11 +1,15 @@
 package com.states.section2.week4.member;
 
 import com.states.section2.week4.DependencyConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MemberTest {
     public static void main(String[] args) {
-        DependencyConfig config = new DependencyConfig();
-        MemberService memberService = config.memberService();
+
+        ApplicationContext ac
+                = new AnnotationConfigApplicationContext(DependencyConfig.class);
+        MemberService memberService = ac.getBean("memberService", MemberService.class);
 
         Member member = new Member(0L, "lucky@codestates.com", "Kimlucky", "010-1234-5678");
         memberService.createMember(member);
@@ -24,6 +28,5 @@ public class MemberTest {
         if (memberService.getMember(0L) == null) {
             System.out.println("회원 삭제가 정상적으로 완료되었습니다.");
         }
-
     }
 }
